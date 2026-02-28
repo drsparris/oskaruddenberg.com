@@ -1,11 +1,27 @@
 @import "tailwindcss";
 
-/* Global base styles */
 html {
   scroll-behavior: smooth;
 }
 
-/* Offset anchor targets for fixed nav (nav height = 56px) */
 section[id] {
   scroll-margin-top: 56px;
+}
+
+/* Subtle dot grid — applied to hero */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.055) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

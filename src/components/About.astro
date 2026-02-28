@@ -1,8 +1,8 @@
 ---
-// ── EDIT: Update your bio paragraph(s) below ──
 const bio = [
-  "Write a couple of sentences about yourself here. Who are you, and what drives you?",
-  "Add more context about your background, interests, or what you're currently working on.",
+  "I'm a seasoned IT leader with over 18 years of experience driving technological innovation and leading high-performing, autonomous teams across various industries.",
+  "With a proven track record in both strategic and operative leadership — including roles as Director of Development and VP of Engineering — I specialise in building technical organisations, setting sound technical roadmaps, and aligning business goals and OKRs with IT initiatives.",
+  "Currently Head of IT & Business Development at Hemfrid, where I lead IT Operations, Engineering, and Change Management. My long-term goal is to serve as CTO or Head of IT for a company where technology is a true competitive advantage.",
 ];
 ---
 
@@ -11,16 +11,18 @@ const bio = [
     <div class="grid sm:grid-cols-3 gap-12 items-start">
       <!-- Section label -->
       <div>
-        <h2 class="text-xs font-semibold uppercase tracking-widest text-[#2563EB]">
+        <p class="font-mono text-cyan-400 text-xs uppercase tracking-[0.2em]">
           About
-        </h2>
+        </p>
       </div>
 
-      <!-- Bio text -->
-      <div class="sm:col-span-2 space-y-4">
-        {bio.map((paragraph) => (
-          <p class="text-gray-600 text-lg leading-relaxed">{paragraph}</p>
-        ))}
+      <!-- Bio -->
+      <div class="sm:col-span-2 space-y-5">
+        {
+          bio.map((paragraph) => (
+            <p class="text-zinc-400 text-base leading-relaxed">{paragraph}</p>
+          ))
+        }
       </div>
     </div>
   </div>

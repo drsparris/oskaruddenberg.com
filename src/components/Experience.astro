@@ -1,58 +1,86 @@
 ---
-// ── EDIT: Update your experience entries below ──
-// Add or remove entries as needed. List them newest-first.
 const experiences = [
   {
-    company: "Company Name",
-    role: "Your Role",
-    period: "2023 – Present",
+    company: "Hemfrid i Sverige AB",
+    role: "Head of IT & Business Development",
+    period: "Oct 2024 – Present",
     description:
-      "Brief description of what you did, what you built, or what impact you had. Keep it to 1–2 sentences.",
+      "Leading IT Operations, Engineering, and Change Management with a budget of 30M SEK/year. Part of the Management Team, responsible for Group IT strategy, system landscape, and technical roadmap.",
   },
   {
-    company: "Previous Company",
-    role: "Your Previous Role",
-    period: "2020 – 2023",
+    company: "Coody",
+    role: "Partner / Co-Founder",
+    period: "Mar 2021 – Present",
     description:
-      "Brief description of responsibilities and notable achievements at this position.",
+      "Advisory role supporting the founders with expertise in sales, recruiting, and long-term technical strategy — drawing on firsthand experience building an IT consultancy from scratch.",
   },
   {
-    company: "Earlier Company",
-    role: "Earlier Role",
-    period: "2018 – 2020",
+    company: "Mathem / Oda",
+    role: "Director of Development",
+    period: "Jan 2023 – Sep 2024",
     description:
-      "Brief description of responsibilities and notable achievements at this position.",
+      "Led the Online Shopping Experience across 4 development teams. Following Mathem's merger with Norwegian retailer Oda, expanded scope to cover global product development across 7 cross-functional teams.",
+  },
+  {
+    company: "Soundtrack Your Brand",
+    role: "VP of Engineering",
+    period: "Oct 2019 – Jan 2023",
+    description:
+      "Responsible for developer growth, team structure, and cross-functional collaboration. Worked alongside the CTO to align the product development organisation with company-wide goals at the Executive Management Team level.",
+  },
+  {
+    company: "Soundtrack Your Brand",
+    role: "VP Music Rights Management",
+    period: "Mar 2017 – Dec 2022",
+    description:
+      "Managed global product rollout across 75 countries, coordinating development, legal, and third-party music hosting teams. Led 3 development teams as team lead.",
+  },
+  {
+    company: "Netlight Consulting",
+    role: "Manager / Solution Manager",
+    period: "Aug 2011 – Feb 2017",
+    description:
+      "Senior consultant and Solution Manager at Netlight, delivering across clients including Viaplay, Klarna, and airberlin in Stockholm and Berlin. Also built the Netlight Berlin office from the ground up as its first employee — growing it to 20 staff by 2017.",
+  },
+  {
+    company: "HYVE Innovation Community GmbH",
+    role: "Software Developer",
+    period: "Mar 2009 – Jul 2011",
+    description:
+      "Web developer for an online crowdsourcing and community platform in Munich.",
   },
 ];
 ---
 
-<section id="experience" class="py-24 px-6 bg-gray-50">
+<section id="experience" class="py-24 px-6 border-t border-white/[0.06]">
   <div class="max-w-4xl mx-auto">
     <div class="grid sm:grid-cols-3 gap-12 items-start">
       <!-- Section label -->
       <div>
-        <h2 class="text-xs font-semibold uppercase tracking-widest text-[#2563EB]">
+        <p class="font-mono text-cyan-400 text-xs uppercase tracking-[0.2em]">
           Experience
-        </h2>
+        </p>
       </div>
 
       <!-- Timeline -->
-      <div class="sm:col-span-2">
-        <ol class="relative space-y-10">
-          {
-            experiences.map((exp, i) => (
-              <li class="relative pl-6 before:absolute before:left-0 before:top-[10px] before:h-full before:w-px before:bg-gray-200 last:before:hidden">
-                <!-- Dot -->
-                <span class="absolute left-[-4px] top-[8px] w-2.5 h-2.5 rounded-full bg-[#2563EB] ring-2 ring-white" />
-
-                <p class="text-xs text-gray-400 font-medium mb-1">{exp.period}</p>
-                <p class="font-semibold text-[#111] mb-0.5">{exp.role}</p>
-                <p class="text-sm text-gray-500 font-medium mb-2">{exp.company}</p>
-                <p class="text-gray-600 text-sm leading-relaxed">{exp.description}</p>
-              </li>
-            ))
-          }
-        </ol>
+      <div class="sm:col-span-2 space-y-4">
+        {
+          experiences.map((exp) => (
+            <div class="group relative rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-cyan-400/20 hover:bg-white/[0.04] transition-colors">
+              <!-- Period + role row -->
+              <div class="flex items-start justify-between gap-4 mb-1">
+                <p class="font-semibold text-zinc-100 text-sm">{exp.role}</p>
+                <p class="font-mono text-[11px] text-zinc-600 whitespace-nowrap pt-0.5">
+                  {exp.period}
+                </p>
+              </div>
+              <!-- Company -->
+              <p class="text-cyan-400/70 text-xs font-mono mb-3">{exp.company}</p>
+              <!-- Description -->
+              <p class="text-zinc-500 text-sm leading-relaxed">{exp.description}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>

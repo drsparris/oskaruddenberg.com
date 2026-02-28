@@ -1,40 +1,67 @@
 ---
-// ── EDIT: Update your name, role, and tagline below ──
 const name = "Oskar Uddenberg";
-const role = "Your Role / Title Here";
-const tagline = "A short, punchy sentence describing what you do or care about.";
+const role = "Head of IT & Business Development";
+const tagline = "Seasoned IT leader with 18+ years of experience building high-performing teams and turning technology into business impact.";
 ---
 
 <section
   id="hero"
-  class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-14"
+  class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-14 dot-grid overflow-hidden"
 >
-  <div class="max-w-2xl">
-    <p class="text-[#2563EB] font-medium text-sm uppercase tracking-widest mb-4">
+  <!-- Ambient glow -->
+  <div
+    class="pointer-events-none absolute inset-0 flex items-center justify-center"
+  >
+    <div
+      class="w-[700px] h-[500px] rounded-full"
+      style="background: radial-gradient(ellipse, rgba(34,211,238,0.07) 0%, transparent 70%);"
+    >
+    </div>
+  </div>
+
+  <div class="relative z-10 max-w-2xl">
+    <!-- Label -->
+    <p
+      class="font-mono text-cyan-400 text-xs uppercase tracking-[0.2em] mb-6"
+    >
       Hello, I'm
     </p>
-    <h1 class="text-5xl sm:text-6xl font-semibold text-[#111] leading-tight mb-4">
+
+    <!-- Name -->
+    <h1 class="gradient-text text-5xl sm:text-6xl font-semibold leading-tight mb-4">
       {name}
     </h1>
-    <p class="text-xl sm:text-2xl text-gray-500 font-medium mb-6">
+
+    <!-- Role -->
+    <p class="text-zinc-400 text-xl sm:text-2xl font-medium mb-6">
       {role}
     </p>
-    <p class="text-gray-600 text-lg leading-relaxed max-w-xl mx-auto mb-10">
+
+    <!-- Tagline -->
+    <p class="text-zinc-500 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-10">
       {tagline}
     </p>
+
+    <!-- CTAs -->
     <div class="flex items-center justify-center gap-4">
       <a
         href="#about"
-        class="px-6 py-3 bg-[#2563EB] text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+        class="px-6 py-2.5 bg-cyan-400 text-[#09090b] rounded-lg font-semibold text-sm hover:bg-cyan-300 transition-colors"
       >
         Learn more
       </a>
       <a
         href="#contact"
-        class="px-6 py-3 border border-gray-200 rounded-lg font-medium text-[#111] hover:border-gray-400 transition-colors"
+        class="px-6 py-2.5 border border-white/10 rounded-lg text-zinc-300 text-sm font-medium hover:border-white/30 hover:text-white transition-colors"
       >
         Get in touch
       </a>
     </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+    <span class="font-mono text-[10px] uppercase tracking-widest text-zinc-500">Scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-zinc-500 to-transparent"></div>
   </div>
 </section>
