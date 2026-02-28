@@ -1,0 +1,40 @@
+---
+// ── EDIT: Update your name, role, and tagline below ──
+const name = "Oskar Uddenberg";
+const role = "Your Role / Title Here";
+const tagline = "A short, punchy sentence describing what you do or care about.";
+---
+
+<section
+  id="hero"
+  class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-14"
+>
+  <div class="max-w-2xl">
+    <p class="text-[#2563EB] font-medium text-sm uppercase tracking-widest mb-4">
+      Hello, I'm
+    </p>
+    <h1 class="text-5xl sm:text-6xl font-semibold text-[#111] leading-tight mb-4">
+      {name}
+    </h1>
+    <p class="text-xl sm:text-2xl text-gray-500 font-medium mb-6">
+      {role}
+    </p>
+    <p class="text-gray-600 text-lg leading-relaxed max-w-xl mx-auto mb-10">
+      {tagline}
+    </p>
+    <div class="flex items-center justify-center gap-4">
+      <a
+        href="#about"
+        class="px-6 py-3 bg-[#2563EB] text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+      >
+        Learn more
+      </a>
+      <a
+        href="#contact"
+        class="px-6 py-3 border border-gray-200 rounded-lg font-medium text-[#111] hover:border-gray-400 transition-colors"
+      >
+        Get in touch
+      </a>
+    </div>
+  </div>
+</section>

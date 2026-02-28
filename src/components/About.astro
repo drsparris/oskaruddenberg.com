@@ -1,0 +1,27 @@
+---
+// ── EDIT: Update your bio paragraph(s) below ──
+const bio = [
+  "Write a couple of sentences about yourself here. Who are you, and what drives you?",
+  "Add more context about your background, interests, or what you're currently working on.",
+];
+---
+
+<section id="about" class="py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid sm:grid-cols-3 gap-12 items-start">
+      <!-- Section label -->
+      <div>
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-[#2563EB]">
+          About
+        </h2>
+      </div>
+
+      <!-- Bio text -->
+      <div class="sm:col-span-2 space-y-4">
+        {bio.map((paragraph) => (
+          <p class="text-gray-600 text-lg leading-relaxed">{paragraph}</p>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

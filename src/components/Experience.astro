@@ -1,0 +1,59 @@
+---
+// ── EDIT: Update your experience entries below ──
+// Add or remove entries as needed. List them newest-first.
+const experiences = [
+  {
+    company: "Company Name",
+    role: "Your Role",
+    period: "2023 – Present",
+    description:
+      "Brief description of what you did, what you built, or what impact you had. Keep it to 1–2 sentences.",
+  },
+  {
+    company: "Previous Company",
+    role: "Your Previous Role",
+    period: "2020 – 2023",
+    description:
+      "Brief description of responsibilities and notable achievements at this position.",
+  },
+  {
+    company: "Earlier Company",
+    role: "Earlier Role",
+    period: "2018 – 2020",
+    description:
+      "Brief description of responsibilities and notable achievements at this position.",
+  },
+];
+---
+
+<section id="experience" class="py-24 px-6 bg-gray-50">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid sm:grid-cols-3 gap-12 items-start">
+      <!-- Section label -->
+      <div>
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-[#2563EB]">
+          Experience
+        </h2>
+      </div>
+
+      <!-- Timeline -->
+      <div class="sm:col-span-2">
+        <ol class="relative space-y-10">
+          {
+            experiences.map((exp, i) => (
+              <li class="relative pl-6 before:absolute before:left-0 before:top-[10px] before:h-full before:w-px before:bg-gray-200 last:before:hidden">
+                <!-- Dot -->
+                <span class="absolute left-[-4px] top-[8px] w-2.5 h-2.5 rounded-full bg-[#2563EB] ring-2 ring-white" />
+
+                <p class="text-xs text-gray-400 font-medium mb-1">{exp.period}</p>
+                <p class="font-semibold text-[#111] mb-0.5">{exp.role}</p>
+                <p class="text-sm text-gray-500 font-medium mb-2">{exp.company}</p>
+                <p class="text-gray-600 text-sm leading-relaxed">{exp.description}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Global base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset anchor targets for fixed nav (nav height = 56px) */
+section[id] {
+  scroll-margin-top: 56px;
+}
