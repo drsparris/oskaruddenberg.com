@@ -39,11 +39,11 @@ const year = new Date().getFullYear();
         </div>
         <figure class="hero-portrait">
           <img
-            src="/img/oskar-720.webp"
-            srcset="/img/oskar-720.webp 720w, /img/oskar-1100.webp 1100w"
+            src="/img/hero-720.webp"
+            srcset="/img/hero-720.webp 720w, /img/hero-1100.webp 1100w"
             sizes="(min-width: 900px) 42vw, 100vw"
-            width="1100" height="857"
-            alt="Black and white portrait of Oskar Uddenberg"
+            width="1100" height="1375"
+            alt="Oskar Uddenberg sitting by a tall window, looking out"
             fetchpriority="high"
           />
           <figcaption>{profile.location}</figcaption>
@@ -157,18 +157,14 @@ const year = new Date().getFullYear();
           <h2 id="off-h" class="section-title">Off duty</h2>
           <p class="offduty-intro">{offDuty.intro}</p>
         </div>
-        <div class="offduty-photos">
-          {offDuty.photos.map((ph, i) => (
-            <figure>
-              <img
-                src={ph.src} srcset={ph.srcset}
-                sizes={i === 0 ? "(min-width: 900px) 760px, 66vw" : "(min-width: 900px) 380px, 33vw"}
-                width={ph.width} height={ph.height}
-                loading="lazy" decoding="async" alt={ph.alt}
-              />
-            </figure>
-          ))}
-        </div>
+        <figure class="offduty-photo">
+          <img
+            src={offDuty.photo.src} srcset={offDuty.photo.srcset}
+            sizes="(min-width: 1260px) 1200px, 100vw"
+            width={offDuty.photo.width} height={offDuty.photo.height}
+            loading="lazy" decoding="async" alt={offDuty.photo.alt}
+          />
+        </figure>
         <dl class="offduty-list">
           {offDuty.items.map((it) => (
             <div class="offduty-item">

@@ -147,7 +147,7 @@ export const offDuty = {
   items: [
     {
       label: "Family",
-      text: "A young daughter, a partner and two dogs, a Jack Russell and a Dalmatian, who prefer to sleep in the same bed.",
+      text: "A young daughter, a partner and two dogs, a Jack Russell and a Dalmatian, who prefer to nap side by side.",
     },
     {
       label: "Outdoors",
@@ -162,18 +162,10 @@ export const offDuty = {
       text: "Following AI development closely and trying new tools as they ship, from coding agents to personal assistants.",
     },
   ],
-  photos: [
-    {
-      src: "/img/window-800.webp",
-      srcset: "/img/window-800.webp 800w, /img/window-1400.webp 1400w",
-      width: 1400, height: 1230,
-      alt: "Oskar sitting by a tall window next to a monstera plant",
-    },
-    {
-      src: "/img/dogs-400.webp",
-      srcset: "/img/dogs-400.webp 400w, /img/dogs-700.webp 700w",
-      width: 700, height: 1244,
-      alt: "A Jack Russell and a Dalmatian asleep next to each other on a fluffy blanket",
-    },
-  ],
+  photo: {
+    src: "/img/dogs-wide-900.webp",
+    srcset: "/img/dogs-wide-900.webp 900w, /img/dogs-wide-1600.webp 1600w",
+    width: 1600, height: 800,
+    alt: "A Jack Russell and a Dalmatian asleep side by side on a fluffy blanket",
+  },
 };
