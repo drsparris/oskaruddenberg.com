@@ -196,7 +196,6 @@ const year = new Date().getFullYear();
     btn?.addEventListener("click", () => {
       const next = current() === "dark" ? "light" : "dark";
       root.dataset.theme = next;
-      try { localStorage.setItem("theme", next); } catch {}
     });
   </script>
 </Layout>
