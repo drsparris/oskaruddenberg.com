@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Logo from "../components/Logo.astro";
-import { profile, highlights, experience, principles, education, certifications, languages } from "../data/profile";
+import { profile, highlights, experience, principles, education, certifications, languages, offDuty } from "../data/profile";
 const year = new Date().getFullYear();
 ---
 <Layout>
@@ -151,21 +151,24 @@ const year = new Date().getFullYear();
       </div>
     </section>
 
-    <section class="offduty" aria-labelledby="off-h">
-      <figure class="offduty-img">
-        <img
-          src="/img/dalmatians-900.webp"
-          srcset="/img/dalmatians-900.webp 900w, /img/dalmatians-1800.webp 1800w"
-          sizes="(min-width: 900px) 60vw, 100vw"
-          width="1800" height="1350"
-          loading="lazy" decoding="async"
-          alt="Two Dalmatians resting on a bed"
-        />
-      </figure>
-      <div class="offduty-text">
+    <section class={`offduty${offDuty.photo ? "" : " offduty--text"}`} aria-labelledby="off-h">
+      {offDuty.photo && (
+        <figure class="offduty-img">
+          <img
+            src={offDuty.photo.src}
+            srcset={offDuty.photo.srcset}
+            sizes="(min-width: 900px) 60vw, 100vw"
+            width={offDuty.photo.width} height={offDuty.photo.height}
+            loading="lazy" decoding="async"
+            alt={offDuty.photo.alt}
+          />
+        </figure>
+      )}
+      <div class={offDuty.photo ? "offduty-text" : "wrap split offduty-split"}>
         <h2 id="off-h" class="section-title">Off duty</h2>
-        <p>Most of my spare time goes to family and our two Dalmatians. They keep me outdoors and have taught me a lot about patience and about keeping communication clear and simple.</p>
-        <p>Otherwise I go scuba diving and skiing, and on rainy nights I play PC games.</p>
+        <div class="prose">
+          {offDuty.paragraphs.map((p) => <p>{p}</p>)}
+        </div>
       </div>
     </section>
 

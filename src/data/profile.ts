@@ -139,3 +139,16 @@ export const languages = [
   { name: "German", level: "Fluent" },
   { name: "French", level: "A2" },
 ];
+
+// Off duty section. Set `photo` to an object like
+// { src: "/img/offduty-900.webp", srcset: "...", alt: "..." } to show an image beside the text.
+export const offDuty: {
+  paragraphs: string[];
+  photo: null | { src: string; srcset?: string; width: number; height: number; alt: string };
+} = {
+  paragraphs: [
+    "Most of my free time goes to my partner and our young daughter, and these days that is exactly how I want it.",
+    "In winter I ski whenever we can get to the mountains. The rest of the time I experiment with AI on my own hardware: local models, a small home lab and tools that make everyday life a little simpler.",
+  ],
+  photo: null,
+};
