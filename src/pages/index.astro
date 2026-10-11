@@ -151,24 +151,32 @@ const year = new Date().getFullYear();
       </div>
     </section>
 
-    <section class={`offduty${offDuty.photo ? "" : " offduty--text"}`} aria-labelledby="off-h">
-      {offDuty.photo && (
-        <figure class="offduty-img">
-          <img
-            src={offDuty.photo.src}
-            srcset={offDuty.photo.srcset}
-            sizes="(min-width: 900px) 60vw, 100vw"
-            width={offDuty.photo.width} height={offDuty.photo.height}
-            loading="lazy" decoding="async"
-            alt={offDuty.photo.alt}
-          />
-        </figure>
-      )}
-      <div class={offDuty.photo ? "offduty-text" : "wrap split offduty-split"}>
-        <h2 id="off-h" class="section-title">Off duty</h2>
-        <div class="prose">
-          {offDuty.paragraphs.map((p) => <p>{p}</p>)}
+    <section class="offduty" aria-labelledby="off-h">
+      <div class="wrap">
+        <div class="split">
+          <h2 id="off-h" class="section-title">Off duty</h2>
+          <p class="offduty-intro">{offDuty.intro}</p>
         </div>
+        <div class="offduty-photos">
+          {offDuty.photos.map((ph, i) => (
+            <figure>
+              <img
+                src={ph.src} srcset={ph.srcset}
+                sizes={i === 0 ? "(min-width: 900px) 760px, 66vw" : "(min-width: 900px) 380px, 33vw"}
+                width={ph.width} height={ph.height}
+                loading="lazy" decoding="async" alt={ph.alt}
+              />
+            </figure>
+          ))}
+        </div>
+        <dl class="offduty-list">
+          {offDuty.items.map((it) => (
+            <div class="offduty-item">
+              <dt class="label">{it.label}</dt>
+              <dd>{it.text}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
 

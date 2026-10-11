@@ -19,7 +19,7 @@ export const profile = {
 };
 
 export const highlights = [
-  { value: "18+", label: "years in IT, from developer to management team" },
+  { value: "~20", label: "years in IT since 2007, from developer to management team" },
   { value: "7", label: "cross-functional teams led after the Mathem–Oda merger" },
   { value: "75", label: "countries in Soundtrack Your Brand's global rollout" },
   { value: "1 → 20", label: "people when I built Netlight's Berlin office" },
@@ -140,15 +140,40 @@ export const languages = [
   { name: "French", level: "A2" },
 ];
 
-// Off duty section. Set `photo` to an object like
-// { src: "/img/offduty-900.webp", srcset: "...", alt: "..." } to show an image beside the text.
-export const offDuty: {
-  paragraphs: string[];
-  photo: null | { src: string; srcset?: string; width: number; height: number; alt: string };
-} = {
-  paragraphs: [
-    "Most of my free time goes to my partner and our young daughter, and these days that is exactly how I want it.",
-    "In winter I ski whenever we can get to the mountains. The rest of the time I experiment with AI on my own hardware: local models, a small home lab and tools that make everyday life a little simpler.",
+// Off duty section.
+export const offDuty = {
+  intro:
+    "Most of my free time goes to my family, especially my daughter and our two dogs. The rest goes to being outdoors and to keeping up with AI, mostly by building things myself.",
+  items: [
+    {
+      label: "Family",
+      text: "A young daughter, a partner and two dogs, a Jack Russell and a Dalmatian, who prefer to sleep in the same bed.",
+    },
+    {
+      label: "Outdoors",
+      text: "Long walks with the dogs in all weather, and skiing whenever winter allows.",
+    },
+    {
+      label: "Home lab",
+      text: "A workstation at home running open-weight language models locally, so I can see what current AI can do without the cloud.",
+    },
+    {
+      label: "Keeping up",
+      text: "Following AI development closely and trying new tools as they ship, from coding agents to personal assistants.",
+    },
   ],
-  photo: null,
+  photos: [
+    {
+      src: "/img/window-800.webp",
+      srcset: "/img/window-800.webp 800w, /img/window-1400.webp 1400w",
+      width: 1400, height: 1230,
+      alt: "Oskar sitting by a tall window next to a monstera plant",
+    },
+    {
+      src: "/img/dogs-400.webp",
+      srcset: "/img/dogs-400.webp 400w, /img/dogs-700.webp 700w",
+      width: 700, height: 1244,
+      alt: "A Jack Russell and a Dalmatian asleep next to each other on a fluffy blanket",
+    },
+  ],
 };
