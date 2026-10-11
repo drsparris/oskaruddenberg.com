@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Logo from "../components/Logo.astro";
-import { profile, highlights, experience, principles, education, certifications, languages, offDuty } from "../data/profile";
+import { profile, highlights, experience, principles, education, certifications, languages, offDuty, thinking } from "../data/profile";
 const year = new Date().getFullYear();
 ---
 <Layout>
@@ -15,6 +15,7 @@ const year = new Date().getFullYear();
         <ul class="nav">
           <li><a href="#work">Work</a></li>
           <li><a href="#approach">Approach</a></li>
+          <li><a href="#thinking">Thinking</a></li>
           <li><a href="#background">Background</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -119,6 +120,23 @@ const year = new Date().getFullYear();
       </div>
     </section>
 
+    <section class="thinking" id="thinking" aria-labelledby="thinking-h">
+      <div class="wrap">
+        <div class="split">
+          <h2 id="thinking-h" class="section-title">Where IT is heading</h2>
+          <p class="thinking-intro">{thinking.intro}</p>
+        </div>
+        <ol class="questions">
+          {thinking.questions.map((t) => (
+            <li class="question">
+              <h3 class="question-q">{t.q}</h3>
+              <p class="question-a">{t.a}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
     <section class="background" id="background" aria-labelledby="bg-h">
       <div class="wrap">
         <h2 id="bg-h" class="section-title">Background</h2>
@@ -182,7 +200,7 @@ const year = new Date().getFullYear();
         <p class="contact-note">About technology leadership, engineering organisations or AI in practice. I usually reply within a day.</p>
         <ul class="contact-links">
           <li><a href={`mailto:${profile.email}`} class="contact-link"><span class="label">Email</span><span class="contact-value">{profile.email}</span></a></li>
-          <li><a href={profile.linkedin} rel="me noopener" target="_blank" class="contact-link"><span class="label">LinkedIn</span><span class="contact-value">in/oskaruddenberg ↗</span></a></li>
+          <li><a href={profile.linkedin} rel="me noopener" target="_blank" class="contact-link"><span class="label">LinkedIn</span><span class="contact-value">se.linkedin.com/in/oskaruddenberg ↗</span></a></li>
         </ul>
       </div>
     </section>

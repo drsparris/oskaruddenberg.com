@@ -7,13 +7,13 @@ export const profile = {
   org: "Hemfrid / KEYTO Group",
   location: "Stockholm, Sweden",
   email: "oskar.uddenberg@gmail.com",
-  linkedin: "https://www.linkedin.com/in/oskaruddenberg/",
+  linkedin: "https://se.linkedin.com/in/oskaruddenberg",
   url: "https://oskaruddenberg.com/",
   lede:
     "I lead technology organisations where IT is not a support function but a driver of simplicity, efficiency and long-term value.",
   intro: [
     "My career runs from developer and consultant to leading technical organisations in e-commerce, music tech and home services.",
-    "At Hemfrid, part of KEYTO Group, I lead IT Operations, IT Engineering and Change Management, and sit on the management team. I own the IT strategy, security and compliance, align the technology roadmap with group strategy, and work with M&A integration as the group grows.",
+    "At Hemfrid, part of KEYTO Group, I lead IT Operations, IT Engineering and Business Development, and sit on the management team. I own the IT strategy, security and compliance, align the technology roadmap with group strategy, and work with M&A integration as the group grows.",
     "Much of my current work is about building AI capability inside the organisation, so that AI-driven work becomes a normal part of how we develop software and make decisions.",
   ],
 };
@@ -168,4 +168,28 @@ export const offDuty = {
     width: 1600, height: 800,
     alt: "A Jack Russell and a Dalmatian asleep side by side on a fluffy blanket",
   },
+};
+
+// "Where IT is heading": open questions I keep coming back to.
+export const thinking = {
+  intro:
+    "AI is making technology cheaper and faster to build. What I keep coming back to is what that does to the IT organisation over the next few years.",
+  questions: [
+    {
+      q: "Which roles stay in IT, and which move into the business?",
+      a: "When building gets cheap, more of the work can sit close to the people who own the problem. The open question is where the line goes for platforms, security, data and integration.",
+    },
+    {
+      q: "How many teams do you actually need?",
+      a: "If a small team can deliver what a large one used to, team design has to start from ownership and flow, not headcount.",
+    },
+    {
+      q: "Specialists or generalists?",
+      a: "AI raises the floor for generalists, but someone still has to know where the sharp edges are. The mix, and who you hire first, is changing.",
+    },
+    {
+      q: "What remains when tech is cheap?",
+      a: "Understanding the problem, writing good requirements and helping people change how they work. These were always the hard parts, and they are becoming the main ones.",
+    },
+  ],
 };
