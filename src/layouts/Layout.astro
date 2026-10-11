@@ -1,37 +1,59 @@
 ---
-interface Props {
-  title?: string;
-  description?: string;
-}
+import { profile, experience, languages, education } from "../data/profile";
+import "../styles/global.css";
 
+interface Props { title?: string; description?: string }
 const {
-  title = "Oskar Uddenberg",
-  description = "Personal website of Oskar Uddenberg.",
+  title = `${profile.name} · ${profile.title}`,
+  description = `${profile.name} is Head of IT & Business Development at Hemfrid (KEYTO Group) in Stockholm, with 18+ years leading engineering, IT operations and digital transformation.`,
 } = Astro.props;
----
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: profile.url,
+  image: new URL("/img/oskar-720.webp", profile.url).href,
+  jobTitle: profile.title,
+  worksFor: { "@type": "Organization", name: "Hemfrid", parentOrganization: { "@type": "Organization", name: "KEYTO Group" } },
+  address: { "@type": "PostalAddress", addressLocality: "Stockholm", addressCountry: "SE" },
+  alumniOf: education.map((e) => ({ "@type": "CollegeOrUniversity", name: e.org })),
+  knowsLanguage: languages.map((l) => l.name),
+  sameAs: [profile.linkedin],
+  knowsAbout: ["IT strategy", "Engineering leadership", "Digital transformation", "IT governance", "Salesforce", "IT M&A", "AI adoption"],
+};
+const ogImage = new URL("/og.jpg", profile.url).href;
+---
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <style>
-      body {
-        font-family: "Inter", sans-serif;
-      }
-    </style>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={profile.url} />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={profile.url} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/fonts/zodiak-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/switzer-400.woff2" as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t) document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body class="bg-[#09090b] text-zinc-100 antialiased">
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
     <slot />
   </body>
 </html>

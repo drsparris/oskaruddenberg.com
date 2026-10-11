@@ -1,26 +1,202 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Nav from "../components/Nav.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Experience from "../components/Experience.astro";
-import Contact from "../components/Contact.astro";
-import "../styles/global.css";
+import Logo from "../components/Logo.astro";
+import { profile, highlights, experience, principles, education, certifications, languages } from "../data/profile";
+const year = new Date().getFullYear();
 ---
+<Layout>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#top" class="brand" aria-label="Oskar Uddenberg, back to top">
+        <Logo size={28} />
+        <span class="brand-name">Oskar Uddenberg</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#background">Background</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+      </button>
+    </div>
+  </header>
 
-<Layout title="Oskar Uddenberg" description="Personal website of Oskar Uddenberg.">
-  <Nav />
-  <main>
-    <Hero />
-    <About />
-    <Experience />
-    <Contact />
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">{profile.title} · {profile.org}</p>
+          <h1 class="display">Oskar<br />Uddenberg</h1>
+          <p class="lede">{profile.lede}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <a class="btn btn-ghost" href={profile.linkedin} rel="me noopener" target="_blank">LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <figure class="hero-portrait">
+          <img
+            src="/img/oskar-720.webp"
+            srcset="/img/oskar-720.webp 720w, /img/oskar-1100.webp 1100w"
+            sizes="(min-width: 900px) 42vw, 100vw"
+            width="1100" height="857"
+            alt="Black and white portrait of Oskar Uddenberg"
+            fetchpriority="high"
+          />
+          <figcaption>{profile.location}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="numbers" aria-label="Highlights">
+      <div class="wrap">
+        <dl class="numbers-grid">
+          {highlights.map((h) => (
+            <div class="number">
+              <dt class="number-label">{h.label}</dt>
+              <dd class="number-value">{h.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section class="now" aria-labelledby="now-h">
+      <div class="wrap split">
+        <h2 id="now-h" class="section-title">What I do</h2>
+        <div class="prose">
+          {profile.intro.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="work" aria-labelledby="work-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="work-h" class="section-title">Experience</h2>
+          <p class="section-note">E-commerce, music tech, home services and consulting, in Stockholm, Berlin and Munich.</p>
+        </div>
+        <ol class="timeline">
+          {experience.map((r) => (
+            <li class="role">
+              <p class="role-period">{r.period}</p>
+              <div class="role-body">
+                <h3 class="role-title">{r.title}</h3>
+                <p class="role-org">{r.org} <span class="dot" aria-hidden="true">·</span> {r.place}</p>
+                <p class="role-summary">{r.summary}</p>
+                {r.sub && (
+                  <details class="role-sub">
+                    <summary>Client assignments</summary>
+                    <ul>
+                      {r.sub.map((s) => (
+                        <li><span class="sub-period">{s.period}</span><span>{s.title}, <strong>{s.org}</strong></span></li>
+                      ))}
+                    </ul>
+                  </details>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="approach" id="approach" aria-labelledby="approach-h">
+      <div class="wrap">
+        <h2 id="approach-h" class="section-title">How I lead</h2>
+        <ol class="principles">
+          {principles.map((p, i) => (
+            <li class="principle">
+              <span class="principle-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <h3 class="principle-title">{p.title}</h3>
+              <p>{p.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="background" id="background" aria-labelledby="bg-h">
+      <div class="wrap">
+        <h2 id="bg-h" class="section-title">Background</h2>
+        <div class="bg-grid">
+          <div>
+            <h3 class="label">Education</h3>
+            <ul class="facts">
+              {education.map((e) => (
+                <li><strong>{e.title}</strong><span>{e.org}</span><span class="muted">{e.period}{e.note ? ` · ${e.note}` : ""}</span></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 class="label">Certifications</h3>
+            <ul class="facts">
+              {certifications.map((c) => (
+                <li><strong>{c.title}</strong><span>{c.org}</span><span class="muted">{c.year}</span></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 class="label">Languages</h3>
+            <ul class="facts langs">
+              {languages.map((l) => (
+                <li><strong>{l.name}</strong><span class="muted">{l.level}</span></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="offduty" aria-labelledby="off-h">
+      <figure class="offduty-img">
+        <img
+          src="/img/dalmatians-900.webp"
+          srcset="/img/dalmatians-900.webp 900w, /img/dalmatians-1800.webp 1800w"
+          sizes="(min-width: 900px) 60vw, 100vw"
+          width="1800" height="1350"
+          loading="lazy" decoding="async"
+          alt="Two Dalmatians resting on a bed"
+        />
+      </figure>
+      <div class="offduty-text">
+        <h2 id="off-h" class="section-title">Off duty</h2>
+        <p>Most of my spare time goes to family and our two Dalmatians. They keep me outdoors and have taught me a lot about patience and about keeping communication clear and simple.</p>
+        <p>Otherwise I go scuba diving and skiing, and on rainy nights I play PC games.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-h">
+      <div class="wrap">
+        <h2 id="contact-h" class="display contact-title">Let's talk.</h2>
+        <p class="contact-note">About technology leadership, engineering organisations or AI in practice. I usually reply within a day.</p>
+        <ul class="contact-links">
+          <li><a href={`mailto:${profile.email}`} class="contact-link"><span class="label">Email</span><span class="contact-value">{profile.email}</span></a></li>
+          <li><a href={profile.linkedin} rel="me noopener" target="_blank" class="contact-link"><span class="label">LinkedIn</span><span class="contact-value">in/oskaruddenberg ↗</span></a></li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="relative z-10 py-8 px-6 bg-[#09090b] border-t border-white/[0.06] text-center">
-    <p class="font-mono text-xs text-zinc-600">
-      &copy; {new Date().getFullYear()} Oskar Uddenberg
-    </p>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <Logo size={20} />
+      <p>© {year} {profile.name} · Stockholm</p>
+    </div>
   </footer>
+
+  <script>
+    const root = document.documentElement;
+    const btn = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+    const current = () =>
+      root.dataset.theme ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    btn?.addEventListener("click", () => {
+      const next = current() === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch {}
+    });
+  </script>
 </Layout>
