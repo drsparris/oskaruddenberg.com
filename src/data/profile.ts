@@ -6,7 +6,7 @@ export const profile = {
   title: "Head of IT & Business Development",
   org: "Hemfrid / KEYTO Group",
   location: "Stockholm, Sweden",
-  email: "oskar.uddenberg@gmail.com",
+  email: "hi@oskaruddenberg.com",
   linkedin: "https://se.linkedin.com/in/oskaruddenberg",
   url: "https://oskaruddenberg.com/",
   lede:
